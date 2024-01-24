@@ -1,4 +1,4 @@
-import type { definitions } from "~/generated-types";
+import type { definitions } from "~/types/generated-types";
 
 export type IdeaQueryResult =
   Pick<definitions["ideas"], "id" | "title" | "description" | "problem" | "updated_at" | "created_at" | "whatsapp">

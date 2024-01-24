@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { HiArrowCircleLeft as ArrowLeft } from "react-icons/hi";
-import PolitribeLogo from "~/public/icon/ic_politribe-logo.svg";
+import PolitribeLogo from "~/icon/ic_politribe-logo.svg";
 
 export type FormHeaderProps = {
   title: string;

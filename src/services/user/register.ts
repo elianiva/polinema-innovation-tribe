@@ -1,7 +1,7 @@
 import { useMutation } from "@tanstack/react-query";
 import { toast } from "react-hot-toast";
 import { useSupabase } from "~/components/Supabase";
-import type { RegistrationSchema } from "~/schema/Registration";
+import type { RegistrationSchema } from "~/schema/registration";
 
 export function useUserRegistration() {
   const { supabase } = useSupabase();

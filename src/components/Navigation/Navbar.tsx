@@ -2,7 +2,7 @@
 "use client";
 import Link from "next/link";
 import { Fragment, useReducer } from "react";
-import PolitribeLogo from "~/public/icon/ic_politribe-logo.svg";
+import PolitribeLogo from "~/icon/ic_politribe-logo.svg";
 import { useSupabase } from "~/components/Supabase/SupabaseProvider";
 import { HiOutlineMenuAlt3 } from "react-icons/hi";
 import { Menu, Transition } from "@headlessui/react";

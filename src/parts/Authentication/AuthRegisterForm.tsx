@@ -2,7 +2,7 @@
 
 import { useForm } from "react-hook-form";
 import { Form } from "~/components/Form/Form";
-import { registrationSchema, RegistrationSchema } from "~/schema/Registration";
+import { registrationSchema, RegistrationSchema } from "~/schema/registration";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Input } from "~/components/Form/Input";
 import { useRouter } from "next/navigation";

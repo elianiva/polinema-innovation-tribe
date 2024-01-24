@@ -1,7 +1,7 @@
 import { useMutation } from "@tanstack/react-query";
 import { toast } from "react-hot-toast";
 import { useSupabase } from "~/components/Supabase";
-import type { IdeaSchema } from "~/schema/Idea";
+import type { IdeaSchema } from "~/schema/idea";
 
 export function useCreateIdea() {
   const { supabase, session } = useSupabase();

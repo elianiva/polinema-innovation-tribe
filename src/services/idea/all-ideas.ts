@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { useSupabase } from "~/components/Supabase";
-import type { definitions } from "~/generated-types";
+import type { definitions } from "~/types/generated-types";
 import type { Idea } from "~/types/Idea/Index/Idea";
 
 type IdeaQueryResult = Pick<definitions["ideas"], "id" | "title" | "description" | "problem" | "updated_at" | "created_at"> & {

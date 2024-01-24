@@ -1,7 +1,7 @@
 import { useMutation } from "@tanstack/react-query";
 import { toast } from "react-hot-toast";
 import { useSupabase } from "~/components/Supabase";
-import type { AuthSchema } from "~/schema/Auth";
+import type { AuthSchema } from "~/schema/auth";
 
 type UseUserLoginProps = {
   provider: "email" | "google";

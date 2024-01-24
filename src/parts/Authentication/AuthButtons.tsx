@@ -1,5 +1,5 @@
 import type { MouseEvent } from "react";
-import GoogleIcon from "~/public/icon/ic_google-icon.svg";
+import GoogleIcon from "~/icon/ic_google-icon.svg";
 import Link from "next/link";
 import { HiUser as UserIcon } from "react-icons/hi2";
 import { useUserLogin } from "~/services/user/login";

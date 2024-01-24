@@ -11,11 +11,11 @@ import {
 } from "react-icons/hi2";
 import { SubmitHandler, useForm } from "react-hook-form";
 import ProTips from "~/parts/Idea/Create/ProTips";
-import type { definitions } from "~/generated-types";
+import type { definitions } from "~/types/generated-types";
 import { useCreateIdea } from "~/services/idea/create-idea";
 import { Input } from "~/components/Form/Input";
 import { TextAreaInput } from "~/components/Form/TextAreaInput";
-import { type IdeaSchema, ideaSchema } from "~/schema/Idea";
+import { type IdeaSchema, ideaSchema } from "~/schema/idea";
 import { Form } from "~/components/Form";
 
 export type IdeaBox = definitions["ideas"];
