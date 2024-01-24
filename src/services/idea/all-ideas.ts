@@ -1,18 +1,14 @@
 import { useQuery } from "@tanstack/react-query";
-import { useSupabase } from "~/components/Supabase";
-import type { definitions } from "~/types/generated-types";
 import type { Idea } from "~/types/Idea/Index/Idea";
+import { supabaseBrowser } from "~/utils/supabase-browser";
 
-type IdeaQueryResult = Pick<definitions["ideas"], "id" | "title" | "description" | "problem" | "updated_at" | "created_at"> & {
-  users: Pick<definitions["profiles"], "id" | "bio" | "first_name" | "last_name" | "username" | "profile_image">
-}
+type IdeaQueryResult = Record<string, string>;
 
 export function useIdeas() {
-  const { supabase } = useSupabase();
   return useQuery<Idea[]>({
     queryKey: ["ideas"],
     queryFn: async () => {
-      const ideas = await supabase
+      const ideas = await supabaseBrowser
         .from("ideas")
         .select(`
           id,

@@ -1,44 +1,29 @@
-import { useQuery } from "@tanstack/react-query";
-import { useAuth } from "~/services/user/auth";
-import { useSupabase } from "~/components/Supabase";
 import type { UserQueryResult } from "~/services/user/user-query-result";
+import { createSupabaseServerClient } from "~/utils/supabase";
+import type { ReadonlyRequestCookies } from "next/dist/server/web/spec-extension/adapters/request-cookies";
 
-type Profile = {
-  id: string;
-  name: string;
-  bio: string;
-  username: string;
-  profileImage: string;
-}
-
-export function useProfile() {
-  const { supabase } = useSupabase();
-  const session = useAuth();
-  return useQuery<Profile | null>({
-    queryKey: ["profiles", session?.id],
-    queryFn: async () => {
-      if (session?.id === undefined) return null;
-      const users = await supabase
-        .from("users") // from users view, not from auth.users
-        .select(`
-          id,
-          username,
-          bio,
-          first_name,
-          last_name,
-          profile_image
-        `)
-        .eq("id", session.id);
-      if (users.data === null || users.data.length < 1) return null;
-
-      const user = users.data[0] as UserQueryResult;
-      return {
-        id: user.id,
-        username: user.username,
-        bio: user.bio,
-        name: [user.first_name, user.last_name].join(" "),
-        profileImage: user.profile_image
-      };
-    }
-  });
+export async function fetchUserProfile(cookies: ReadonlyRequestCookies) {
+  const supabase = createSupabaseServerClient(cookies);
+  const { data: { user } } = await supabase.auth.getUser();
+  if (user === null) return null;
+  const users = await supabase
+    .from("users")
+    .select(`
+      id,
+      username,
+      bio,
+      first_name,
+      last_name,
+      profile_image
+    `)
+    .eq("id", user.id);
+  if (users.data === null || users.data.length < 1) return null;
+  const userData = users.data[0] as UserQueryResult;
+  return {
+    id: userData.id,
+    username: userData.username,
+    bio: userData.bio,
+    name: [userData.first_name, userData.last_name].join(" "),
+    profileImage: userData.profile_image
+  };
 }

@@ -4,20 +4,18 @@ import TAGS from "~/data/competition/Tags";
 import CompetitionList from "~/parts/Competition/CompetitionList";
 import Header from "~/parts/Competition/Header";
 import TagList from "~/parts/Idea/Index/TagList";
-import { selectCompetition } from "~/services/competition/select-competition";
 import { useEffect } from "react";
-import { useSupabase } from "../../../components/Supabase/SupabaseProvider";
+import { supabaseBrowser } from "~/utils/supabase-browser";
 
 export default  function CompetitionPage() {
-  const { supabase } = useSupabase();
   useEffect(() => {
     async function fetchCompetition() {
-      const { data, error } = await supabase.from("competitions").select("*");
+      const { data, error } = await supabaseBrowser.from("competitions").select("*");
       console.log(data, error);
     }
 
     fetchCompetition().then((r) => console.log(r)).catch((e) => console.log(e));
-  }, [supabase]);
+  }, [supabaseBrowser]);
   
   return (
     <div>
