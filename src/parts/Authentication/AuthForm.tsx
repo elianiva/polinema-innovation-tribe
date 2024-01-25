@@ -1,12 +1,12 @@
 import TermsSection from "~/parts/Authentication/TermsSection";
 import { AuthOption, FormHeader } from "~/components/Form";
-import AuthButtons from "~/parts/Authentication/AuthButtons";
+import { AuthButtons } from "~/parts/Authentication/AuthButtons";
 
 type AuthFormProps = {
   name: "Register" | "Login";
 };
 
-export default function AuthForm({ name }: AuthFormProps) {
+export function AuthForm({ name }: AuthFormProps) {
   const authOption = name == "Register" ? "Registered" : "Not Yet";
 
   return (

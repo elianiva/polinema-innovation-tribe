@@ -1,7 +1,6 @@
-"use client"
-import AuthForm from "~/parts/Authentication/AuthForm";
+import { AuthForm } from "~/parts/Authentication/AuthForm";
 
-export default function LoginPage() {
+export default async function LoginPage() {
   return (
     <section className={"h-screen flex justify-center items-center"}>
       <AuthForm name="Login" />

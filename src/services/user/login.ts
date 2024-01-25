@@ -1,18 +1,16 @@
 import { useMutation } from "@tanstack/react-query";
 import { toast } from "react-hot-toast";
-import { useSupabase } from "~/components/Supabase";
 import type { AuthSchema } from "~/schema/auth";
+import { supabaseBrowser } from "~/utils/supabase";
 
 type UseUserLoginProps = {
   provider: "email" | "google";
 };
 
 export function useUserLogin(props: UseUserLoginProps) {
-  const { supabase } = useSupabase();
-
   async function login(input?: { email: string; password: string }) {
     if (props.provider === "google") {
-      await supabase.auth.signInWithOAuth({
+      await supabaseBrowser.auth.signInWithOAuth({
         provider: "google",
         options: {
           scopes: "openid",
@@ -25,7 +23,7 @@ export function useUserLogin(props: UseUserLoginProps) {
         throw new Error("Email or password can't be empty!");
       }
 
-      const { error } = await supabase.auth.signInWithPassword({
+      const { error } = await supabaseBrowser.auth.signInWithPassword({
         email: input.email,
         password: input.password,
       });

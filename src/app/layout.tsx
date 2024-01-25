@@ -5,7 +5,7 @@ import { ToasterWrapper } from "~/components/ToastProvider";
 // do not cache this layout
 export const revalidate = 0;
 
-export default async function Layout(props: PropsWithChildren<{}>) {
+export default function Layout(props: PropsWithChildren<{}>) {
   return (
     <html>
     <head></head>

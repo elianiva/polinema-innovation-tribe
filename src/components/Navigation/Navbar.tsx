@@ -1,11 +1,13 @@
 "use client";
+
 import Link from "next/link";
-import { useReducer } from "react";
-import PolitribeLogo from "~/icon/ic_politribe-logo.svg";
+import { useEffect, useReducer } from "react";
+import { PolitribeLogo } from "~/icons/ic_politribe-logo";
 import { HiOutlineMenuAlt3 } from "react-icons/hi";
 import { IoClose } from "react-icons/io5";
 import { NavLinkMenu } from "~/components/Navigation/Components/NavLinkMenu";
 import { AuthMenu } from "~/components/Navigation/Components/AuthMenu";
+import { supabaseBrowser } from "~/utils/supabase";
 
 
 const LINKS: { name: string; url: string }[] = [
@@ -17,7 +19,7 @@ export function AuthButton() {
   return (
     <div className="flex gap-3 flex-col md:flex-row">
       <Link
-        href={"/login"}
+        href="/login"
         className="bg-[#202A3C] px-4 py-2 rounded-lg text-gray-200 text-sm w-full md:w-auto text-center"
       >
         Login
@@ -37,7 +39,7 @@ type NavbarProps = {
     username: string;
     name: string;
     profileImage: string;
-  } | undefined;
+  } | null;
 }
 
 export function Navbar(props: NavbarProps) {
@@ -50,7 +52,7 @@ export function Navbar(props: NavbarProps) {
             <div className="flex items-center justify-between md:block">
               <Link href="/">
                 <h2 className="text-xl md:text-2xl font-bold text-gray-200">
-                  <PolitribeLogo className="w-7 h-7" />
+                  <PolitribeLogo className="w-7 h-7 text-white" />
                 </h2>
               </Link>
               <div className="md:hidden flex gap-2 ">
@@ -64,7 +66,7 @@ export function Navbar(props: NavbarProps) {
                     <HiOutlineMenuAlt3 className="text-gray-200 font-bold text-xl" />
                   )}
                 </button>
-                {props.user !== undefined && (
+                {props.user !== null && (
                   <AuthMenu
                     name={props.user.name}
                     profileImage={props.user.profileImage}
@@ -90,12 +92,12 @@ export function Navbar(props: NavbarProps) {
                 ))}
               </div>
               <div className="mt-3 space-y-2 md:hidden sm:inline-block w-full">
-                {props.user === undefined && <AuthButton />}
+                {props.user === null && <AuthButton />}
               </div>
             </div>
           </div>
           <div className="hidden space-x-2 md:flex text-gray-200 justify-self-end">
-            {props.user === undefined ? (
+            {props.user === null ? (
               <AuthButton />
             ) : (
               <AuthMenu
