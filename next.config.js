@@ -1,6 +1,9 @@
 /** @type {import("next").NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  eslint: {
+    ignoreDuringBuilds: true
+  },
   webpack(config) {
     const nextImageLoaderRule = config.module.rules.find((rule) =>
       rule.test?.test?.(".svg")

@@ -1,17 +1,19 @@
-"use client";
 import Link from "next/link";
 import Header from "~/parts/Idea/Index/Header";
 import SearchInput from "~/parts/Idea/Index/SearchInput";
 import TagList from "~/parts/Idea/Index/TagList";
 import IdeasList from "~/parts/Idea/Index/IdeasList";
-import { useSupabase } from "~/components/Supabase";
-import { useIdeas } from "~/services/idea/all-ideas";
-import { useTags } from "~/services/tags/all-tags";
+import { fetchIdeas } from "~/services/idea/all-ideas";
+import { fetchTags } from "~/services/tags/all-tags";
+import { cookies } from "next/headers";
+import { createSupabaseServerClient } from "~/utils/supabase";
 
-export default function IdeaHomePage() {
-  const { session } = useSupabase();
-  const { data: ideas = [] } = useIdeas();
-  const { data: tags = [] } = useTags();
+export default async function IdeaHomePage() {
+  const cookieStore = cookies();
+  const supabase = createSupabaseServerClient(cookieStore);
+  const session = await supabase.auth.getSession();
+  const ideas = await fetchIdeas(cookieStore);
+  const tags = await fetchTags(cookieStore);
 
   return (
     <section className="w-full h-full pt-1 md:pt-8 relative">

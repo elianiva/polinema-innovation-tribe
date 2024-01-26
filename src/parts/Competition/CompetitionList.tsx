@@ -4,7 +4,7 @@ import type { CompetitionType } from "~/types/competition/CompetitionType";
 import Link from "next/link";
 import { FaPlus } from "react-icons/fa";
 import Competition from "./Competition";
-import { supabaseBrowser } from "~/utils/supabase-browser";
+import { supabaseBrowser } from "~/utils/supabase";
 type CompetitionListProps = {
   competition: CompetitionType[];
 };

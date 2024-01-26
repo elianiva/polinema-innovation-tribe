@@ -2,7 +2,7 @@
 
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
-import { supabaseBrowser } from "~/utils/supabase-browser";
+import { supabaseBrowser } from "~/utils/supabase";
 
 export default function LogoutPage() {
   const router = useRouter();

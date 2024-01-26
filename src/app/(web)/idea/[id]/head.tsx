@@ -1,5 +1,4 @@
 import { Seo } from "~/components/Seo";
-import { useIdeas } from "~/services/idea/all-ideas";
 
 type IdeaMeta = {
   params: {

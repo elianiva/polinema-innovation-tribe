@@ -1,8 +1,7 @@
-"use client";
-
 import IdeaSidebar from "~/parts/Idea/Details/IdeaSidebar";
 import IdeaContent from "~/parts/Idea/Details/IdeaContent";
-import { useIdeaById } from "~/services/idea/idea-by-id";
+import { fetchIdeaById } from "~/services/idea/idea-by-id";
+import { cookies } from "next/headers";
 
 type IdeaPageProps = {
   params: {
@@ -10,8 +9,9 @@ type IdeaPageProps = {
   };
 };
 
-export default function IdeaPage({ params }: IdeaPageProps) {
-  const { data: idea } = useIdeaById(params.id);
+export default async function IdeaPage({ params }: IdeaPageProps) {
+  const cookieStore = cookies();
+  const idea = await fetchIdeaById(cookieStore, params.id);
   if (idea === null || idea === undefined) return null;
 
   return (

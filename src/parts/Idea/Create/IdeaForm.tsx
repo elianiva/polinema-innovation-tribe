@@ -3,37 +3,37 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import {
   HiLightBulb as LightBulbIcon,
-  HiEnvelope as EnvelopeIcon,
   HiPhone as PhoneIcon,
   HiLockClosed as LockClosedIcon,
   HiBeaker as BeakerIcon,
-  HiShieldExclamation as ShieldIcon,
+  HiShieldExclamation as ShieldIcon
 } from "react-icons/hi2";
-import { SubmitHandler, useForm } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import ProTips from "~/parts/Idea/Create/ProTips";
-import type { definitions } from "~/types/generated-types";
-import { useCreateIdea } from "~/services/idea/create-idea";
 import { Input } from "~/components/Form/Input";
 import { TextAreaInput } from "~/components/Form/TextAreaInput";
 import { type IdeaSchema, ideaSchema } from "~/schema/idea";
 import { Form } from "~/components/Form";
-
-export type IdeaBox = definitions["ideas"];
+import { startTransition } from "react";
+import { handleCreateIdea } from "~/parts/Idea/Create/create-idea-action";
 
 function IdeaForm() {
-  const { mutate: createIdea } = useCreateIdea();
   const form = useForm<IdeaSchema>({
-    resolver: zodResolver(ideaSchema),
+    resolver: zodResolver(ideaSchema)
   });
-
-  const onSubmit: SubmitHandler<IdeaSchema> = async (values) => {
-    createIdea(values);
-  };
 
   return (
     <div className="flex flex-col md:flex-row gap-2">
       <div className="w-full p-3">
-        <Form form={form} onSubmit={onSubmit} className="my-4">
+        <Form
+          form={form}
+          onSubmit={(data) => {
+            startTransition(() => {
+              void handleCreateIdea(data);
+            });
+          }}
+          className="my-4"
+        >
           <Input
             label="Title"
             id="title"

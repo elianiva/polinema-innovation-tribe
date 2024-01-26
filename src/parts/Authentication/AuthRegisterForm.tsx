@@ -2,32 +2,26 @@
 
 import { useForm } from "react-hook-form";
 import { Form } from "~/components/Form/Form";
-import { registrationSchema, RegistrationSchema } from "~/schema/registration";
+import { registrationSchema, type RegistrationSchema } from "~/schema/registration";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Input } from "~/components/Form/Input";
-import { useRouter } from "next/navigation";
-import { useUserRegistration } from '~/services/user/register';
+import { startTransition } from "react";
+import { handleUserRegistration } from "~/parts/Authentication/register-action";
 
 export default function AuthRegisterForm() {
-  const router = useRouter();
-  const { mutate: register } = useUserRegistration();
   const form = useForm<RegistrationSchema>({
-    resolver: zodResolver(registrationSchema),
+    resolver: zodResolver(registrationSchema)
   });
-
-  async function handleSubmit(data: RegistrationSchema) {
-    register(data, {
-      onSuccess() {
-        router.push("/login");
-      },
-    });
-  }
 
   return (
     <>
       <Form
         form={form}
-        onSubmit={handleSubmit}
+        onSubmit={(data) => {
+          startTransition(() => {
+            void handleUserRegistration(data);
+          });
+        }}
         className="my-4 w-full max-w-md"
       >
         <Input
@@ -36,7 +30,7 @@ export default function AuthRegisterForm() {
           placeholder="email@example.com"
           {...form.register("email")}
         />
-         <Input
+        <Input
           label="Username"
           id="username"
           placeholder="john_doe"

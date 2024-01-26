@@ -1,8 +1,8 @@
 "use client";
 import Link from "next/link";
 import { FaPlus } from "react-icons/fa";
-import { IdeaCard, IdeaCardProps } from "./IdeaCard";
-import { supabaseBrowser } from "~/utils/supabase-browser";
+import { IdeaCard, type IdeaCardProps } from "./IdeaCard";
+import { supabaseBrowser } from "~/utils/supabase";
 
 type IdeasListProps = {
   ideas: IdeaCardProps[];

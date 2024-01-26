@@ -1,4 +1,4 @@
-import { Card, CardDetail } from "~/components/Card";
+import { Card, type CardDetail } from "~/components/Card";
 import {
   HiUserGroup as UserGroupIcon,
   HiBookOpen as BookIcon,

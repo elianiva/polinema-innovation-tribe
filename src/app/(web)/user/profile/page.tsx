@@ -1,26 +1,23 @@
-"use client";
-
 import Image from "next/image";
-import { useRouter } from "next/navigation";
-import { useAuth } from "~/services/user/auth";
+import { fetchUserProfile } from "~/services/user/profile";
+import { cookies } from "next/headers";
 
-export default function ProfilePage() {
-  const router = useRouter();
-  const user = useAuth();
-  if (user === undefined) {
-    router.push("/login");
-  }
+export default async function ProfilePage() {
+  const user = await fetchUserProfile(cookies());
 
   return (
     <div className="w-full max-w-screen-lg mx-auto md:items-center justify-center gap-12 text-gray-200 flex flex-col">
       <div className="flex gap-4 flex-col max-w-screen-lg w-full">
         <div className="flex flex-col md:items-center md:flex-row md:justify-between gap-2">
-          <div id="user-profile" className="items-center flex gap-4">
+          <div
+            id="user-profile"
+            className="items-center flex gap-4"
+          >
             <div className="bg-gradient-to-tr from-blue-400 to-fuchsia-600 w-fit rounded-full p-[0.15rem]">
               <Image
                 className="w-16 rounded-full"
                 src={
-                  (user?.user_metadata.profile_image as string | undefined) ??
+                  (user?.profileImage) ??
                   `https://source.boringavatars.com/beam/120/${encodeURIComponent(
                     user?.email as string
                   )}?colors=fca2e1,93b5ff,6be4dc,f9e3a9,4a6cb6`
@@ -32,7 +29,7 @@ export default function ProfilePage() {
             </div>
             <div className="text-start">
               <p className="font-bold text-base">
-                {user?.user_metadata.full_name}
+                {user?.name}
               </p>
             </div>
           </div>

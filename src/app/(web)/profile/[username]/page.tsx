@@ -1,29 +1,24 @@
-"use client";
-
 import Image from "next/image";
-import { useRouter } from "next/navigation";
-import { useAuth } from "~/services/user/auth";
-import { useOtherProfile } from "~/services/user/otherprofile";
+import { fetchUserProfile } from "~/services/user/profile";
+import { cookies } from "next/headers";
 
-export type paramsType = {
+export type ProfilePageProps = {
   params: {
     username: string;
   }
 }
 
-export default function ProfilePage(params: paramsType) {
-  const router = useRouter();
-  const userNow = useAuth();
-  const user = useOtherProfile(params.params.username).data;
-  if (userNow === undefined) {
-    router.push("/login");
-  }
+export default async function ProfilePage(props: ProfilePageProps) {
+  const user = await fetchUserProfile(cookies(), props.params.username);
 
   return (
     <div className="w-full max-w-screen-lg mx-auto md:items-center justify-center gap-12 text-gray-200 flex flex-col">
       <div className="flex gap-4 flex-col max-w-screen-lg w-full">
         <div className="flex flex-col md:items-center md:flex-row md:justify-between gap-2">
-          <div id="user-profile" className="items-center flex gap-4">
+          <div
+            id="user-profile"
+            className="items-center flex gap-4"
+          >
             <div className="bg-gradient-to-tr from-blue-400 to-fuchsia-600 w-fit rounded-full p-[0.15rem]">
               <Image
                 className="w-16 rounded-full"

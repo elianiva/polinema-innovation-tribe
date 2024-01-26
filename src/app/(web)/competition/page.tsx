@@ -5,7 +5,7 @@ import CompetitionList from "~/parts/Competition/CompetitionList";
 import Header from "~/parts/Competition/Header";
 import TagList from "~/parts/Idea/Index/TagList";
 import { useEffect } from "react";
-import { supabaseBrowser } from "~/utils/supabase-browser";
+import { supabaseBrowser } from "~/utils/supabase";
 
 export default  function CompetitionPage() {
   useEffect(() => {

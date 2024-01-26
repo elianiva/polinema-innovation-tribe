@@ -1,16 +1,8 @@
-import { useQuery } from "@tanstack/react-query";
-import { useSupabase } from "~/components/Supabase";
-import type { Tag } from "~/types/Idea/Index/Tag";
+import { createSupabaseServerClient, supabaseBrowser } from "~/utils/supabase";
+import type { ReadonlyRequestCookies } from "next/dist/server/web/spec-extension/adapters/request-cookies";
 
-export function useTags() {
-  const { supabase } = useSupabase();
-  return useQuery({
-    queryKey: ["tags"],
-    queryFn: async (): Promise<Tag[]> => {
-      const result = await supabase
-        .from("tags")
-        .select("id, name, slug, colour");
-      return result.data ?? [];
-    },
-  });
+export async function fetchTags(cookieStore: ReadonlyRequestCookies) {
+  const supabase = createSupabaseServerClient(cookieStore);
+  const result = await supabase.from("tags").select("id, name, slug, colour");
+  return result.data ?? [];
 }

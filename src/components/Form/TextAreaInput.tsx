@@ -1,4 +1,4 @@
-import { ComponentProps, forwardRef, ReactNode } from "react";
+import { type ComponentProps, forwardRef, type ReactNode } from "react";
 import { Errors } from "./Errors";
 import { InputWrapper } from "./InputWrapper";
 
