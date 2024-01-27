@@ -5,7 +5,7 @@ CREATE TABLE "public"."profiles"
   "username"   text         NOT NULL,
   "fullname"   text         NOT NULL,
   "bio"        text         NULL,
-  "picture"     text         NULL,
+  "picture"    text         NULL,
   "role"       text         NOT NULL DEFAULT 'user',       -- possible values: user, admin
   "provider"   text         NOT NULL DEFAULT 'credential', -- possible values: credential, oauth
   "created_at" timestamp(6) NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -82,7 +82,7 @@ BEGIN
           new.raw_user_meta_data ->> 'bio'::text,
           new.raw_user_meta_data ->> 'picture'::text,
           'user',
-          'oauth');
+          COALESCE(new.raw_user_meta_data ->> 'provider'::text, 'oauth'));
   RETURN new;
 END;
 $$;
