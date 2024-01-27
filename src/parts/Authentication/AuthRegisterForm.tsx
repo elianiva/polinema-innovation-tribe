@@ -34,22 +34,14 @@ export default function AuthRegisterForm() {
           label="Username"
           id="username"
           placeholder="john_doe"
-          {...form.register("userName")}
+          {...form.register("username")}
         />
-        <div className="flex gap-4">
-          <Input
-            label="First Name"
-            id="firstName"
-            placeholder="John"
-            {...form.register("firstName")}
-          />
-          <Input
-            label="Last Name"
-            id="lastName"
-            placeholder="Doe"
-            {...form.register("lastName")}
-          />
-        </div>
+        <Input
+          label="Full Name"
+          id="fullname"
+          placeholder="John Doe"
+          {...form.register("fullname")}
+        />
         <div className="flex gap-4">
           <Input
             label="Password"

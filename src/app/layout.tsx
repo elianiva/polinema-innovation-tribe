@@ -10,6 +10,7 @@ export default function Layout(props: PropsWithChildren<{}>) {
     <head></head>
     <body>
     <ToasterWrapper />
+    {props.children}
     </body>
     </html>
   );
