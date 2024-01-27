@@ -1,6 +1,5 @@
 import type { PropsWithChildren } from "react";
 import { Suspense } from "react";
-import "~/styles/globals.css";
 import Loading from "~/app/(web)/loading";
 
 export default function RootLayout(props: PropsWithChildren<{}>) {

@@ -2,23 +2,24 @@ import type { PropsWithChildren } from "react";
 import { Suspense } from "react";
 import { Footer } from "~/components/Footer";
 import { Navbar } from "~/components/Navigation/Navbar";
-import "~/styles/globals.css";
 import Loading from "~/app/(auth)/loading";
 import { cookies } from "next/headers";
 import { createSupabaseServerClient } from "~/utils/supabase";
+import { fetchUserProfile } from "~/services/user/profile";
 
 export default async function RootLayout(props: PropsWithChildren<{}>) {
   const cookieStore = cookies();
   const supabase = createSupabaseServerClient(cookieStore);
   const { data: { user } } = await supabase.auth.getUser();
+  const profile = await fetchUserProfile(cookieStore, user?.email);
   return (
     <div className="flex justify-between flex-col h-full">
       <div className="z-20">
         <Navbar
-          user={user === null ? null : {
-            username: user.user_metadata.username,
-            name: user.user_metadata.full_name,
-            profileImage: user.user_metadata.avatar_url
+          user={profile === null ? null : {
+            username: profile.username,
+            name: profile.fullname,
+            profileImage: profile.picture
           }}
         />
       </div>

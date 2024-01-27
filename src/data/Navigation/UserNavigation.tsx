@@ -10,7 +10,7 @@ const UserNavigation: UserNavigationType[] = [
   },
   {
     name: "My Profile",
-    url: "/user/profile",
+    url: "/profile",
     icon: <UserCircleIcon />,
   },
   {

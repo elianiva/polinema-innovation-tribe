@@ -1,8 +1,20 @@
 import { Menu, Transition } from "@headlessui/react";
 import Image from "next/image";
-import UserNavigation from "~/data/Navigation/UserNavigation";
-import { Fragment } from "react";
+import { Fragment, type ReactNode } from "react";
 import Link from "next/link";
+import {
+  HiArrowLeftOnRectangle as ArrowLeft,
+  HiCog6Tooth as Gear,
+  HiLightBulb as LightBulb,
+  HiUserCircle as UserCircleIcon
+} from "react-icons/hi2";
+
+type NavigationMenuItem = {
+  name: string;
+  url: string;
+  icon: ReactNode,
+  isForbidden?: boolean
+}
 
 type AuthMenuProps = {
   username: string;
@@ -11,8 +23,36 @@ type AuthMenuProps = {
 };
 
 export function AuthMenu(props: AuthMenuProps) {
+  const navigationMenuItems: NavigationMenuItem[] = [
+    {
+      name: "My Idea",
+      url: "/user/idea",
+      icon: <LightBulb />,
+      isForbidden: true
+    },
+    {
+      name: "My Profile",
+      url: `/profile/${props.username}`,
+      icon: <UserCircleIcon />
+    },
+    {
+      name: "Settings",
+      url: "/user/setting",
+      icon: <Gear />,
+      isForbidden: true
+    },
+    {
+      name: "Log Out",
+      url: "/user/logout",
+      icon: <ArrowLeft />
+    }
+  ];
+
   return (
-    <Menu as={"div"} className={"relative text-gray-200 z-50"}>
+    <Menu
+      as={"div"}
+      className={"relative text-gray-200 z-50"}
+    >
       <Menu.Button
         className={
           "w-10 h-10 flex justify-center items-center border-2 border-slate-600 rounded-full cursor-pointer"
@@ -48,7 +88,8 @@ export function AuthMenu(props: AuthMenuProps) {
         className={"z-50"}
       >
         <Menu.Items
-          className="absolute right-0 mt-2 w-56 rounded-lg bg-slate-800 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none flex flex-col gap-2 p-3 z-50">
+          className="absolute right-0 mt-2 w-56 rounded-lg bg-slate-800 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none flex flex-col gap-2 p-3 z-50"
+        >
           <Menu.Item
             as="div"
             className={[
@@ -57,8 +98,11 @@ export function AuthMenu(props: AuthMenuProps) {
           >
             Halo, {props.name}
           </Menu.Item>
-          {UserNavigation.map((item) => (
-            <Menu.Item key={item.url} as={Fragment}>
+          {navigationMenuItems.map((item) => (
+            <Menu.Item
+              key={item.url}
+              as={Fragment}
+            >
               {({ active }) => (
                 <Link
                   href={item.url}

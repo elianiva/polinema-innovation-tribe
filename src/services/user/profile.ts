@@ -12,14 +12,14 @@ export async function fetchUserProfile(cookies: ReadonlyRequestCookies, email?: 
   }
 
   const users = await supabase
-    .from("users")
+    .from("profiles")
     .select(`
       id,
       email,
       username,
+      fullname,
       bio,
-      name,
-      profile_image
+      picture
     `)
     .eq("email", email);
   if (users.data === null || users.data.length < 1) return null;
@@ -29,7 +29,7 @@ export async function fetchUserProfile(cookies: ReadonlyRequestCookies, email?: 
     email: userData.email,
     username: userData.username,
     bio: userData.bio,
-    name: userData.name,
-    profileImage: userData.profile_image
+    fullname: userData.fullname,
+    picture: userData.picture
   };
 }

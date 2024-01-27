@@ -1,6 +1,7 @@
 import type { PropsWithChildren } from "react";
 import { ToasterWrapper } from "~/components/ToastProvider";
 import type { Metadata } from "next";
+import "~/styles/globals.css";
 
 // do not cache this layout
 export const revalidate = 0;
