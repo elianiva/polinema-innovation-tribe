@@ -23,7 +23,7 @@ export default async function ProfilePage(props: ProfilePageProps) {
               <Image
                 className="w-16 rounded-full"
                 src={
-                  (user?.picture) ??
+                  user?.picture ??
                   `https://source.boringavatars.com/beam/120/${encodeURIComponent(
                     user?.username as string
                   )}?colors=fca2e1,93b5ff,6be4dc,f9e3a9,4a6cb6`

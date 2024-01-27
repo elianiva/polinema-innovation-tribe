@@ -10,8 +10,9 @@ import { fetchUserProfile } from "~/services/user/profile";
 export default async function RootLayout(props: PropsWithChildren<{}>) {
   const cookieStore = cookies();
   const supabase = createSupabaseServerClient(cookieStore);
-  const { data: { user } } = await supabase.auth.getUser();
-  const profile = await fetchUserProfile(cookieStore, user?.email);
+  const { data: { session } } = await supabase.auth.getSession();
+  const profile = session === null ? null : await fetchUserProfile(cookieStore, session?.user?.email as string);
+
   return (
     <div className="flex justify-between flex-col h-full">
       <div className="z-20">
