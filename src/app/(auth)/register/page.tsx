@@ -1,6 +1,11 @@
 import { AuthOption, FormHeader } from "~/components/Form";
 import AuthRegisterForm from "~/parts/Authentication/AuthRegisterForm";
 import TermsSection from "~/parts/Authentication/TermsSection";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Register New Account",
+};
 
 export default function RegisterPage() {
   return (

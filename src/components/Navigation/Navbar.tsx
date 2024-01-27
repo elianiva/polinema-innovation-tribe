@@ -1,13 +1,12 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useReducer } from "react";
+import { useReducer } from "react";
 import { PolitribeLogo } from "~/icons/ic_politribe-logo";
 import { HiOutlineMenuAlt3 } from "react-icons/hi";
 import { IoClose } from "react-icons/io5";
 import { NavLinkMenu } from "~/components/Navigation/Components/NavLinkMenu";
 import { AuthMenu } from "~/components/Navigation/Components/AuthMenu";
-import { supabaseBrowser } from "~/utils/supabase";
 
 
 const LINKS: { name: string; url: string }[] = [

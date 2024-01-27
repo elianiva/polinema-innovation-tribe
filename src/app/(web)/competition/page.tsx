@@ -1,4 +1,5 @@
 "use client";
+
 import COMPETITION from "~/data/competition/Competition";
 import TAGS from "~/data/competition/Tags";
 import CompetitionList from "~/parts/Competition/CompetitionList";

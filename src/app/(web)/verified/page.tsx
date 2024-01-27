@@ -1,4 +1,5 @@
 "use client";
+
 import { useDropzone } from "react-dropzone";
 import React, { useState } from "react";
 
@@ -16,10 +17,10 @@ export type UploadProps = {
 const verificationCriteria = [
   "Kartu Tanda Mahasiswa (KTM) / Kartu Tanda Dosen (KTD) yang masih berlaku",
   "Screenshot Siakad Politeknik Negeri Malang",
-  "Bukti kegiatan akademik",
-]
+  "Bukti kegiatan akademik"
+];
 
-const Upload: React.FC = () => {
+export default function VerifyPage() {
   const [files, setFiles] = useState<UploadProps[]>([]);
   const { getRootProps, getInputProps } = useDropzone({
     accept: { "image/*": [] },
@@ -31,15 +32,22 @@ const Upload: React.FC = () => {
   });
 
   const thumbnail = files.map((file) => (
-    <div key={file.name} className="flex flex-col items-center justify-center">
-      <img src={file.preview} className="w-auto h-32" />
+    <div
+      key={file.name}
+      className="flex flex-col items-center justify-center"
+    >
+      <img
+        src={file.preview}
+        className="w-auto h-32"
+      />
       <p className="text-sm text-gray-400">{file.name}</p>
     </div>
   ));
 
   return (
     <section className="flex flex-col gap-6 flex-wrap mt-16 max-w-7xl mx-auto">
-      <h1 className="text-3xl font-bold text-gray-200 text-center">Verifikasi Akun Mahasiswa / Dosen Politeknik Negeri Malang</h1>
+      <h1 className="text-3xl font-bold text-gray-200 text-center">Verifikasi Akun Mahasiswa / Dosen Politeknik Negeri
+        Malang</h1>
       <div {...getRootProps({ className: "flex flex-col flex-1 p-20 bg-slate-500/30 border-2 border-dashed border-slate-500/50 rounded-2xl cursor-pointer" })}>
         <input {...getInputProps()} />
         <p className="text-white text-sm font-semibold text-center"> Upload file </p>
@@ -61,9 +69,5 @@ const Upload: React.FC = () => {
         <button className="btn btn-primary">Kirim</button>
       </div>
     </section>
-  )
-
-
+  );
 }
-
-export default Upload;
