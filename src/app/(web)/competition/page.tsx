@@ -1,29 +1,24 @@
-"use client";
-
-import COMPETITION from "~/data/competition/Competition";
-import TAGS from "~/data/competition/Tags";
-import CompetitionList from "~/parts/Competition/CompetitionList";
 import Header from "~/parts/Competition/Header";
-import TagList from "~/parts/Idea/Index/TagList";
-import { useEffect } from "react";
-import { supabaseBrowser } from "~/utils/supabase";
 
-export default  function CompetitionPage() {
-  useEffect(() => {
-    async function fetchCompetition() {
-      const { data, error } = await supabaseBrowser.from("competitions").select("*");
-      console.log(data, error);
-    }
-
-    fetchCompetition().then((r) => console.log(r)).catch((e) => console.log(e));
-  }, [supabaseBrowser]);
-  
+export default function CompetitionPage() {
   return (
     <div>
       <section className="w-full h-full pt-1 md:pt-8 relative">
         <Header />
-        <TagList tags={TAGS} />
-        <CompetitionList competition={COMPETITION} />
+        <h1 className="text-2xl text-white text-center py-24">
+          For now, please visit
+          {" "}
+          <a
+            className="text-violet-400"
+            href="https://jayanti.jti.polinema.ac.id"
+          >
+            jayanti.jti.polinema.ac.id
+          </a>
+          {" "}
+          instead.
+        </h1>
+        {/*<TagList tags={TAGS} />*/}
+        {/*<CompetitionList competition={COMPETITION} />*/}
       </section>
     </div>
   );

@@ -5,8 +5,8 @@ import { useReducer } from "react";
 import { PolitribeLogo } from "~/icons/ic_politribe-logo";
 import { HiOutlineMenuAlt3 } from "react-icons/hi";
 import { IoClose } from "react-icons/io5";
-import { NavLinkMenu } from "~/components/Navigation/Components/NavLinkMenu";
 import { AuthMenu } from "~/components/Navigation/Components/AuthMenu";
+import { NavLink } from "~/components/Navigation/NavLink";
 
 
 const LINKS: { name: string; url: string }[] = [
@@ -83,10 +83,10 @@ export function Navbar(props: NavbarProps) {
             >
               <div className="items-center justify-center space-y-4 md:flex md:space-x-6 md:space-y-0">
                 {LINKS.map((link, index) => (
-                  <NavLinkMenu
+                  <NavLink
                     key={index}
                     name={link.name}
-                    url={link.url}
+                    href={link.url}
                   />
                 ))}
               </div>
