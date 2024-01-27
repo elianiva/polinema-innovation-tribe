@@ -11,16 +11,20 @@ type GoogleAuthProps = {
 
 export function AuthButtons({ name }: GoogleAuthProps) {
   async function handleGoogleAuth() {
-    await supabaseBrowser.auth.signInWithOAuth({
-      provider: "google",
-      options: {
-        queryParams: {
-          access_type: "offline",
-          prompt: "consent"
-        },
-        redirectTo: `${process.env.NEXT_PUBLIC_BASE_URL}/auth/callback`
-      }
-    });
+    try {
+      await supabaseBrowser.auth.signInWithOAuth({
+        provider: "google",
+        options: {
+          queryParams: {
+            access_type: "offline",
+            prompt: "consent"
+          },
+          redirectTo: `${process.env.NEXT_PUBLIC_BASE_URL}/auth/callback`
+        }
+      });
+    } catch (e) {
+      console.error(e);
+    }
   }
 
   return (

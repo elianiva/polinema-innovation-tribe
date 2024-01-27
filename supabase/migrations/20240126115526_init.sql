@@ -71,20 +71,18 @@ BEGIN
    email,
    username,
    fullname,
-   bio,
    picture,
    role,
    provider)
   VALUES (new.id,
           new.email,
-          new.raw_user_meta_data ->> 'username'::text,
-          new.raw_user_meta_data ->> 'name'::text,
-          new.raw_user_meta_data ->> 'bio'::text,
-          new.raw_user_meta_data ->> 'picture'::text,
+          COALESCE(new.raw_user_meta_data ->> 'username'::text, SPLIT_PART(new.email, '@', 1)),
+          new.raw_user_meta_data ->> 'full_name'::text,
+          new.raw_user_meta_data ->> 'avatar_url'::text,
           'user',
           COALESCE(new.raw_user_meta_data ->> 'provider'::text, 'oauth'));
   RETURN new;
-END;
+END ;
 $$;
 
 CREATE TRIGGER on_auth_user_created
