@@ -23,7 +23,7 @@ export default async function ProfilePage(props: ProfilePageProps) {
               <Image
                 className="w-16 rounded-full"
                 src={
-                  (user?.profileImage as string | undefined) ??
+                  (user?.picture) ??
                   `https://source.boringavatars.com/beam/120/${encodeURIComponent(
                     user?.username as string
                   )}?colors=fca2e1,93b5ff,6be4dc,f9e3a9,4a6cb6`
@@ -35,7 +35,7 @@ export default async function ProfilePage(props: ProfilePageProps) {
             </div>
             <div className="text-start">
               <p className="font-bold text-base">
-                {user?.name}
+                {user?.fullname}
               </p>
             </div>
           </div>
@@ -69,9 +69,9 @@ export default async function ProfilePage(props: ProfilePageProps) {
               className="bg-slate-800 p-5 rounded-lg w-full md:w-[30%]"
             >
               <h1 className="font-bold py-2 text-xl">Information</h1>
-              <section className="py-2 flex flex-col gap-4">
+              <section className="py-2 flex flex-col gap-1">
                 <h4 className="text-gray-500">Bio</h4>
-                <p>{user?.bio ?? "Loading..."}</p>
+                <p>{user?.bio ?? "I'm a mysterous person"}</p>
               </section>
             </div>
             <div
