@@ -34,7 +34,7 @@ export function Form<TSchema extends FieldValues = FieldValues>(
           (errors) => {
             console.debug({ errors });
           }
-        )}
+        ) as any}
       >
         <fieldset
           className="flex flex-col gap-4"
