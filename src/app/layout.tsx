@@ -1,6 +1,7 @@
 import type { PropsWithChildren } from "react";
-import { ToasterWrapper } from "~/components/ToastProvider";
 import type { Metadata } from "next";
+import NextTopLoader from "nextjs-toploader";
+import { ToasterWrapper } from "~/components/ToastProvider";
 import "~/styles/globals.css";
 
 // do not cache this layout
@@ -53,6 +54,11 @@ export default function Layout(props: PropsWithChildren<{}>) {
     <html>
     <body>
     <ToasterWrapper />
+    <NextTopLoader
+      color="#8b5cf6"
+      showSpinner
+      zIndex={1600}
+    />
     {props.children}
     </body>
     </html>
