@@ -1,10 +1,10 @@
-import type { Idea } from "~/types/Idea/Index/Idea";
 import { createSupabaseServerClient } from "~/utils/supabase";
 import type { ReadonlyRequestCookies } from "next/dist/server/web/spec-extension/adapters/request-cookies";
+import type { IdeaSchema } from "~/schema/idea";
 
 type IdeaQueryResult = Record<string, any>;
 
-export async function fetchIdeasByUsername(cookieStore: ReadonlyRequestCookies, username: string) {
+export async function fetchIdeasByUsername(cookieStore: ReadonlyRequestCookies, username: string): Promise<IdeaSchema[]> {
   const supabase = createSupabaseServerClient(cookieStore);
   const { data: ideas } = await supabase
     .from("ideas")
@@ -27,7 +27,7 @@ export async function fetchIdeasByUsername(cookieStore: ReadonlyRequestCookies, 
     .eq("profiles.username", username);
   if (ideas === null) return [];
 
-  const mappedData: Idea[] = (
+  return (
     ideas as unknown as IdeaQueryResult[]
   ).map((idea) => ({
     id: idea.id,
@@ -39,10 +39,10 @@ export async function fetchIdeasByUsername(cookieStore: ReadonlyRequestCookies, 
     },
     comments: [],
     title: idea.title,
-    updatedAt: new Date(idea.updated_at ?? Date.now()).getTime(),
+    updatedAt: new Date(idea.updated_at ?? Date.now()),
     description: idea.description ?? "",
     problem: idea.problem,
+    solution: idea.solution,
     tags: []
   }));
-  return mappedData;
 }

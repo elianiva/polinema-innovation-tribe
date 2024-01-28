@@ -1,17 +1,16 @@
 import Image from "next/image";
 import { formatDistanceToNow } from "date-fns";
 import tinycolor from "tinycolor2";
-import type { Idea } from "~/types/Idea/Index/Idea";
 import { HiCalendar as CalendarIcon, HiChatBubbleOvalLeft as CommentIcon } from "react-icons/hi2";
 import Link from "next/link";
-import type { Author } from "~/types/Idea/Index/Author";
-import type { Tag } from "~/types/Idea/Index/Tag";
-import type { Comment } from "~/types/Idea/Index/Comment";
+import type { AuthorSchema, IdeaSchema } from "~/schema/idea";
+import type { TagSchema } from "~/schema/tag";
+import type { CommentSchema } from "~/schema/comment";
 
-export type IdeaCardProps = Pick<Idea, "id" | "title" | "description" | "updatedAt"> & {
-  author: Pick<Author, "id" | "fullname" | "picture" | "username">
-  comments: Comment[]
-  tags: Tag[]
+export type IdeaCardProps = Pick<IdeaSchema, "id" | "title" | "description" | "updatedAt"> & {
+  author: Pick<AuthorSchema, "id" | "fullname" | "picture" | "username">
+  comments: CommentSchema[]
+  tags: TagSchema[]
 };
 
 export function IdeaCard(props: IdeaCardProps) {

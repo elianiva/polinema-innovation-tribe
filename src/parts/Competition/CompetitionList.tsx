@@ -1,10 +1,22 @@
 "use client";
 import React from "react";
-import type { CompetitionType } from "~/types/competition/CompetitionType";
 import Link from "next/link";
 import { FaPlus } from "react-icons/fa";
 import Competition from "./Competition";
 import { supabaseBrowser } from "~/utils/supabase";
+
+type CompetitionType = {
+  id: number;
+  title: string;
+  description: string;
+  link: string;
+  tags: Array<{
+    slug: string;
+    tag: string;
+    colour: string;
+  }>;
+};
+
 type CompetitionListProps = {
   competition: CompetitionType[];
 };

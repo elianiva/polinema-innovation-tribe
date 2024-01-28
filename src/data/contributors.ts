@@ -1,4 +1,9 @@
-import type { Contributor } from "~/types/Index/Contributor";
+type Contributor = {
+  name: string;
+  avatarUrl: string;
+  githubUrl: string;
+  jobDesc: string;
+};
 
 export const contributors: Contributor[] = [
   {

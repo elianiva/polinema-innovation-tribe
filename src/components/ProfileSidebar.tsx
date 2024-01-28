@@ -1,8 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
-import type { Author } from "~/types/Idea/Index/Author";
+import type { AuthorSchema } from "~/schema/idea";
 
-export function ProfileSidebar(author: Author) {
+export function ProfileSidebar(author: AuthorSchema) {
   return (
     <div className="flex flex-col gap-2">
       <div className="flex flex-col gap-3">

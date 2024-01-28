@@ -1,9 +1,9 @@
 import tinycolor from "tinycolor2";
-import type { Tag } from "../../../types/Idea/Index/Tag";
+import type { TagSchema } from "~/schema/tag";
 
-type TagItemProps = Tag & {
+type TagItemProps = TagSchema & {
   isActive?: boolean;
-  onClick: (slug: Tag) => void;
+  onClick: (slug: TagSchema) => void;
 };
 
 export default function TagItem({ isActive, onClick, ...props }: TagItemProps) {

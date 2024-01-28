@@ -1,10 +1,8 @@
 import Link from "next/link";
 import Image from "next/image";
-import { HiCalendar } from "react-icons/hi";
-import { formatDistanceToNow } from "date-fns";
-import type { Idea } from "~/types/Idea/Index/Idea";
+import type { IdeaSchema } from "~/schema/idea";
 
-export default function IdeaHeader(props: Idea) {
+export default function IdeaHeader(props: IdeaSchema) {
   return (
     <div className="flex flex-row justify-between items-start pb-4 border-b border-b-slate-600/60">
       <div

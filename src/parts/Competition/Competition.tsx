@@ -1,11 +1,22 @@
 "use client";
 import React from "react";
-import type { CompetitionType } from "~/types/competition/CompetitionType";
 import Image from "next/image";
 import tinycolor from "tinycolor2";
 import Link from "next/link";
 
-const Competition = (props: CompetitionType) => {
+type CompetitionProps = {
+  id: number;
+  title: string;
+  description: string;
+  link: string;
+  tags: Array<{
+    slug: string;
+    tag: string;
+    colour: string;
+  }>;
+}
+
+const Competition = (props: CompetitionProps) => {
   return (
     <>
       <Link

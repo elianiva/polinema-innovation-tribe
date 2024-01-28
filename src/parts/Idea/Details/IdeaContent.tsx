@@ -1,4 +1,3 @@
-import type { Idea } from "~/types/Idea/Index/Idea";
 import {
   MdOutlineLightbulb as OutlineLightbulbIcon,
   MdOutlineReportProblem as OutlineReportProblemIcon
@@ -6,8 +5,9 @@ import {
 import IdeaHeader from "./IdeaHeader";
 import { HiCalendar } from "react-icons/hi";
 import { formatDistanceToNow } from "date-fns";
+import type { IdeaSchema } from "~/schema/idea";
 
-export default function IdeaContent(props: Idea) {
+export default function IdeaContent(props: IdeaSchema) {
   return (
     <div className="max-w-4xl p-1 lg:sticky lg:top-0 w-[100%] lg:w-[80%]">
       <div className="rounded-lg p-4 flex flex-col gap-4">

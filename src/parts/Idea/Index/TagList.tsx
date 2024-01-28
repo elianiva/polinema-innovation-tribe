@@ -1,20 +1,20 @@
 "use client";
 
 import { useState } from "react";
-import type { Tag } from "~/types/Idea/Index/Tag";
 import TagItem from "./TagItem";
+import type { TagSchema } from "~/schema/tag";
 
 const LIMIT = 8;
 
 type TagListProps = {
-  tags: Tag[];
+  tags: TagSchema[];
 };
 
 export default function TagList(props: TagListProps) {
   const [shouldShowMore, setShouldShowMore] = useState(false);
-  const [selectedTags, setSelectedTags] = useState<Tag[]>([]);
+  const [selectedTags, setSelectedTags] = useState<TagSchema[]>([]);
 
-  function toggleSelectedTag(tag: Tag) {
+  function toggleSelectedTag(tag: TagSchema) {
     const isAlreadySelected = selectedTags.some((t) => t.slug === tag.slug);
     setSelectedTags((prev) =>
       isAlreadySelected

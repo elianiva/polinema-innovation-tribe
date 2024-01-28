@@ -1,8 +1,8 @@
 import { createSupabaseServerClient } from "~/utils/supabase";
 import type { ReadonlyRequestCookies } from "next/dist/server/web/spec-extension/adapters/request-cookies";
-import type { Idea } from "~/types/Idea/Index/Idea";
+import type { IdeaSchema } from "~/schema/idea";
 
-export async function fetchIdeaById(cookieStore: ReadonlyRequestCookies, id: string): Promise<Idea | null> {
+export async function fetchIdeaById(cookieStore: ReadonlyRequestCookies, id: string): Promise<IdeaSchema | null> {
   const supabase = createSupabaseServerClient(cookieStore);
   const { data: ideas, error } = await supabase
     .from("ideas")
@@ -35,10 +35,10 @@ export async function fetchIdeaById(cookieStore: ReadonlyRequestCookies, id: str
     },
     comments: [],
     title: idea.title,
-    updatedAt: new Date(idea.updated_at ?? Date.now()).getTime(),
     description: idea.description ?? "",
     solution: idea.solution,
     problem: idea.problem,
-    tags: []
+    tags: [],
+    updatedAt: new Date(idea.updated_at ?? Date.now())
   };
 }
