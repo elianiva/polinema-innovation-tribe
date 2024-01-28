@@ -24,11 +24,11 @@ export default function ContactForm() {
           });
         }}
       >
-        <h1 className="text-gray-200 text-4xl text-center font-bold mb-8">
+        <h1 className="text-gray-200 text-4xl text-center font-bold">
           Give Us Your Feedback!
         </h1>
-        <p className="text-red-500 text-center mb-8">
-          The form is not working at this time. To help improve it, please see
+        <p className="text-red-500 text-center">
+          The form is not working at the moment. To help improve it, please see
           our GitHub repository and contact the owner.
         </p>
         <div className="relative z-0 w-full mb-6 group">
@@ -44,7 +44,7 @@ export default function ContactForm() {
             htmlFor="floating_text"
             className="peer-focus:font-medium absolute text-sm text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-purple-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
           >
-            Nama Lengkap
+            Fullname
           </label>
         </div>
         <div className="relative z-0 w-full mb-6 group">
@@ -60,7 +60,7 @@ export default function ContactForm() {
             htmlFor="floating_suggestion"
             className="peer-focus:font-medium absolute text-sm text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-purple-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
           >
-            Saran / Kritik
+            Suggestions
           </label>
         </div>
         <button

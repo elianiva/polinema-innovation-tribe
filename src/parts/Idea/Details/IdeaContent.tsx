@@ -6,7 +6,6 @@ import {
 import IdeaHeader from "./IdeaHeader";
 import { HiCalendar } from "react-icons/hi";
 import { formatDistanceToNow } from "date-fns";
-import indonesianLocale from "date-fns/locale/id";
 
 export default function IdeaContent(props: Idea) {
   return (
