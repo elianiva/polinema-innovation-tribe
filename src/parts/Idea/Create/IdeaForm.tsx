@@ -3,8 +3,6 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import {
   HiLightBulb as LightBulbIcon,
-  HiPhone as PhoneIcon,
-  HiLockClosed as LockClosedIcon,
   HiBeaker as BeakerIcon,
   HiShieldExclamation as ShieldIcon
 } from "react-icons/hi2";
@@ -23,8 +21,8 @@ function IdeaForm() {
   });
 
   return (
-    <div className="flex flex-col md:flex-row gap-2">
-      <div className="w-full p-3">
+    <div className="flex flex-col md:flex-row gap-6">
+      <div className="w-full">
         <Form
           form={form}
           onSubmit={(data) => {
@@ -37,45 +35,30 @@ function IdeaForm() {
           <Input
             label="Title"
             id="title"
-            placeholder="Idea Title"
+            placeholder="A title for your idea"
             icon={<LightBulbIcon />}
             {...form.register("title")}
-          />
-          <Input
-            label="Problem"
-            id="problem"
-            placeholder="What kind of Problem?"
-            icon={<ShieldIcon />}
-            {...form.register("problem")}
-          />
-          <Input
-            label="Solution"
-            id="solution"
-            placeholder="How do you solve it?"
-            icon={<BeakerIcon />}
-            {...form.register("solution")}
           />
           <TextAreaInput
             label="Description"
             id="description"
-            placeholder="What is it?"
+            placeholder="A brief description of the idea you're proposing"
             icon={<BeakerIcon />}
             {...form.register("description")}
           />
-          <Input
-            label="Deadline"
-            id="Deadline"
-            placeholder="Deadline..."
-            icon={<LockClosedIcon />}
-            type="date"
-            {...form.register("deadline")}
+          <TextAreaInput
+            label="Problem"
+            id="problem"
+            placeholder="What are the problems you're trying to solve?"
+            icon={<ShieldIcon />}
+            {...form.register("problem")}
           />
-          <Input
-            label="Whatsapp"
-            id="whatsapp"
-            placeholder="+628123456789"
-            icon={<PhoneIcon />}
-            {...form.register("whatsapp")}
+          <TextAreaInput
+            label="Solution"
+            id="solution"
+            placeholder="How are you going to solve it?"
+            icon={<BeakerIcon />}
+            {...form.register("solution")}
           />
           <button className="btn btn-primary">Submit</button>
         </Form>
