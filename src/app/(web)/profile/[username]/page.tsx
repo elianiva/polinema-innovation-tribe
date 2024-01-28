@@ -1,12 +1,17 @@
 import Image from "next/image";
 import { fetchUserProfile } from "~/services/user/profile";
 import { cookies } from "next/headers";
+import type { Metadata } from "next";
 
-export type ProfilePageProps = {
+type ProfilePageProps = {
   params: {
     username: string;
   }
 }
+
+export const metadata: Metadata = {
+  title: "Profile",
+};
 
 export default async function ProfilePage(props: ProfilePageProps) {
   const user = await fetchUserProfile(cookies(), props.params.username);

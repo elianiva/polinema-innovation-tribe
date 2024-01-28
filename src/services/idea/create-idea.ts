@@ -14,7 +14,6 @@ export async function createIdea(cookieStore: ReadonlyRequestCookies, input: Ide
       problem: input.problem,
       solution: input.solution,
       description: input.description,
-      whatsapp: input.whatsapp
     }
   ]);
 }

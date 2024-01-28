@@ -7,6 +7,11 @@ import { fetchIdeas } from "~/services/idea/all-ideas";
 import { fetchTags } from "~/services/tags/all-tags";
 import { cookies } from "next/headers";
 import { createSupabaseServerClient } from "~/utils/supabase";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Ideas"
+};
 
 export default async function IdeaHomePage() {
   const cookieStore = cookies();

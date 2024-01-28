@@ -9,6 +9,13 @@ type IdeaPageProps = {
   };
 };
 
+export async function generateMetadata({ params }: IdeaPageProps) {
+  const idea = await fetchIdeaById(cookies(), params.id);
+  return {
+    title: idea?.title ?? "Idea",
+  };
+}
+
 export default async function IdeaPage({ params }: IdeaPageProps) {
   const cookieStore = cookies();
   const idea = await fetchIdeaById(cookieStore, params.id);
