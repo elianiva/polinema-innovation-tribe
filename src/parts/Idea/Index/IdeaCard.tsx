@@ -20,7 +20,7 @@ export function IdeaCard(props: IdeaCardProps) {
       <Link
         href={`/idea/${props.id}`}
         className={
-          "p-5 border border-slate-700 bg-slate-800/40 rounded-lg flex gap-3 cursor-pointer hover:ring-2 hover:ring-purple-600 hover:scale-105 transition-all duration-500 ease-in-out flex-col"
+          "p-5 border border-slate-700 bg-slate-800/40 rounded-lg flex gap-3 cursor-pointer hover:ring-2 hover:ring-purple-600 transition-all duration-200 ease-in-out flex-col"
         }
       >
         <div>

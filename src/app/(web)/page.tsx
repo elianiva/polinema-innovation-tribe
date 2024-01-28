@@ -14,7 +14,6 @@ export default function HomePage() {
   return (
     <>
       <Hero />
-      <BenefitSection />
       <StepsSection />
       <ContactForm />
       <ContributorSection contributors={contributors} />

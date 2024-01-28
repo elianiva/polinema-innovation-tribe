@@ -24,7 +24,7 @@ export default async function RootLayout(props: PropsWithChildren<{}>) {
           }}
         />
       </div>
-      <div className="flex-1">
+      <div className="flex-1 py-10">
         <Suspense fallback={<Loading />}>
           <main className="h-full">{props.children}</main>
         </Suspense>

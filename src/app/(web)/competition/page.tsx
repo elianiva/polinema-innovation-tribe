@@ -5,7 +5,7 @@ export default function CompetitionPage() {
     <div>
       <section className="w-full h-full pt-1 md:pt-8 relative">
         <Header />
-        <h1 className="text-2xl text-white text-center py-24">
+        <h1 className="text-2xl text-slate-200 text-center py-24">
           For now, please visit
           {" "}
           <a

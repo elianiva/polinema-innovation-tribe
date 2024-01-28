@@ -13,7 +13,6 @@ type NavigationMenuItem = {
   name: string;
   url: string;
   icon: ReactNode,
-  isForbidden?: boolean
 }
 
 type AuthMenuProps = {
@@ -25,21 +24,9 @@ type AuthMenuProps = {
 export function AuthMenu(props: AuthMenuProps) {
   const navigationMenuItems: NavigationMenuItem[] = [
     {
-      name: "My Idea",
-      url: "/user/idea",
-      icon: <LightBulb />,
-      isForbidden: true
-    },
-    {
       name: "My Profile",
       url: `/profile/${props.username}`,
       icon: <UserCircleIcon />
-    },
-    {
-      name: "Settings",
-      url: "/user/setting",
-      icon: <Gear />,
-      isForbidden: true
     },
     {
       name: "Log Out",
@@ -58,17 +45,6 @@ export function AuthMenu(props: AuthMenuProps) {
           "w-10 h-10 flex justify-center items-center border-2 border-slate-600 rounded-full cursor-pointer"
         }
       >
-        {/*{user?.app_metadata.provider === "google" ? (*/}
-        {/*  <Image*/}
-        {/*    className={"w-10 h-10 rounded-full"}*/}
-        {/*    src={user.user_metadata.picture}*/}
-        {/*    alt={user.user_metadata.full_name}*/}
-        {/*    width={40}*/}
-        {/*    height={40}*/}
-        {/*  />*/}
-        {/*) : (*/}
-        {/*  <UserIcon />*/}
-        {/*)}*/}
         <Image
           className="w-10 h-10 rounded-full"
           src={props.profileImage}
@@ -106,15 +82,9 @@ export function AuthMenu(props: AuthMenuProps) {
               {({ active }) => (
                 <Link
                   href={item.url}
-                  onClick={(e) => {
-                    if (item.isForbidden) {
-                      e.preventDefault();
-                    }
-                  }}
                   className={[
                     `${active ? "bg-slate-900" : "bg-slate-800"}`,
-                    "p-2 rounded-lg flex items-center justify-start gap-2",
-                    item.isForbidden ? "cursor-not-allowed" : ""
+                    "p-2 rounded-lg flex items-center justify-start gap-2"
                   ].join(" ")}
                 >
                   <div>{item.icon}</div>
