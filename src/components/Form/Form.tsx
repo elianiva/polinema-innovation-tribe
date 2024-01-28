@@ -23,7 +23,7 @@ export function Form<TSchema extends FieldValues = FieldValues>(
     <FormProvider {...props.form}>
       <form
         className={props.className}
-        onSubmit={props.form.handleSubmit(
+        action={props.form.handleSubmit(
           (data) => {
             try {
               props.onSubmit(data);

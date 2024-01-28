@@ -7,6 +7,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { Input } from "~/components/Form/Input";
 import { startTransition } from "react";
 import { handleUserRegistration } from "~/parts/Authentication/register-action";
+import toast from "react-hot-toast";
 
 export default function AuthRegisterForm() {
   const form = useForm<RegistrationSchema>({
@@ -19,7 +20,9 @@ export default function AuthRegisterForm() {
         form={form}
         onSubmit={(data) => {
           startTransition(() => {
-            void handleUserRegistration(data);
+            void handleUserRegistration(data).then(() => {
+              toast.success("Registered successfully");
+            });
           });
         }}
         className="my-4 w-full max-w-md"

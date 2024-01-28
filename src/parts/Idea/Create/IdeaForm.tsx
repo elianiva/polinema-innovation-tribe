@@ -14,6 +14,8 @@ import { type IdeaSchema, ideaSchema } from "~/schema/idea";
 import { Form } from "~/components/Form";
 import { startTransition } from "react";
 import { handleCreateIdea } from "~/parts/Idea/Create/create-idea-action";
+import { SubmitButton } from "~/components/Form/SubmitButton";
+import toast from "react-hot-toast";
 
 function IdeaForm() {
   const form = useForm<IdeaSchema>({
@@ -27,7 +29,9 @@ function IdeaForm() {
           form={form}
           onSubmit={(data) => {
             startTransition(() => {
-              void handleCreateIdea(data);
+              void handleCreateIdea(data).then(() => {
+                toast.success("Idea created successfully");
+              });
             });
           }}
           className="my-4"
@@ -60,7 +64,9 @@ function IdeaForm() {
             icon={<BeakerIcon />}
             {...form.register("solution")}
           />
-          <button className="btn btn-primary">Submit</button>
+          <SubmitButton>
+            Submit
+          </SubmitButton>
         </Form>
       </div>
       <ProTips />

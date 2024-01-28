@@ -8,6 +8,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter } from "next/navigation";
 import { startTransition } from "react";
 import { handleLoginWithCredentials } from "~/parts/Authentication/login-action";
+import toast from "react-hot-toast";
 
 export default function AuthLoginForm() {
   const router = useRouter();
@@ -21,7 +22,9 @@ export default function AuthLoginForm() {
         form={form}
         onSubmit={(data) => {
           startTransition(() => {
-            void handleLoginWithCredentials(data);
+            void handleLoginWithCredentials(data).then(() => {
+              toast.success("Logged in successfully");
+            });
           });
         }}
         className="my-4 w-full max-w-md"

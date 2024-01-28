@@ -6,6 +6,7 @@ import { contactDetailSchema, type ContactDetailSchema } from "~/schema/contact"
 import { startTransition } from "react";
 import { handleSendSuggestion } from "~/parts/Index/send-suggestion-action";
 import { Form } from "~/components/Form";
+import toast from "react-hot-toast";
 
 export default function ContactForm() {
   const form = useForm<ContactDetailSchema>({
@@ -20,7 +21,9 @@ export default function ContactForm() {
         className="rounded-lg md:w-[50%] p-8 h-full w-full bg-purple-700 bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-20 border border-purple-800"
         onSubmit={(data) => {
           startTransition(() => {
-            void handleSendSuggestion(data);
+            void handleSendSuggestion(data).then(() => {
+              toast.success("Thank you for your feedback!");
+            });
           });
         }}
       >

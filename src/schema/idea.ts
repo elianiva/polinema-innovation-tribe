@@ -1,6 +1,6 @@
 import { z } from "zod";
-import { commentSchema } from "~/schema/comment";
-import { tagSchema } from "~/schema/tag";
+import { type CommentSchema, commentSchema } from "~/schema/comment";
+import { type TagSchema, tagSchema } from "~/schema/tag";
 
 export const authorSchema = z.object({
   id: z.string(),
@@ -11,15 +11,16 @@ export const authorSchema = z.object({
 export type AuthorSchema = z.infer<typeof authorSchema>;
 
 export const ideaSchema = z.object({
-  id: z.string(),
   title: z.string().min(4),
   description: z.string().min(20),
   problem: z.string().min(10),
   solution: z.string().min(20),
-  author: authorSchema,
-  comments: z.array(commentSchema),
-  tags: z.array(tagSchema),
-  updatedAt: z.date(),
 });
 
-export type IdeaSchema = z.infer<typeof ideaSchema>;
+export type IdeaSchema = z.infer<typeof ideaSchema> & {
+  id: string;
+  author: AuthorSchema;
+  comments: CommentSchema[];
+  tags: TagSchema[];
+  updatedAt: Date;
+}
