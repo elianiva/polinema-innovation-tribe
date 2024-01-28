@@ -9,10 +9,10 @@ type IdeaPageProps = {
   };
 };
 
+// TODO(elianiva): figure out how to take the idea title as the page title without having to query for it twice
 export async function generateMetadata({ params }: IdeaPageProps) {
-  const idea = await fetchIdeaById(cookies(), params.id);
   return {
-    title: idea?.title ?? "Idea",
+    title: "Idea Detail",
   };
 }
 
@@ -24,7 +24,6 @@ export default async function IdeaPage({ params }: IdeaPageProps) {
   return (
     <div className="w-full justify-center items-center xl:px-56 text-gray-200 flex flex-col lg:flex-row">
       <IdeaContent key={idea.id} {...idea} />
-      <IdeaSidebar {...idea} />
     </div>
   );
 }

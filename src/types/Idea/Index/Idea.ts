@@ -12,6 +12,4 @@ export type Idea = {
   updatedAt: number;
   comments: Comment[];
   tags: Tag[];
-  whatsapp ?: string;
-  email ?: string;
 };

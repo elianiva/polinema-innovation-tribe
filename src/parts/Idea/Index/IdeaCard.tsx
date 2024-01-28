@@ -1,5 +1,3 @@
-"use client";
-
 import Image from "next/image";
 import { formatDistanceToNow } from "date-fns";
 import tinycolor from "tinycolor2";
@@ -11,7 +9,7 @@ import type { Tag } from "~/types/Idea/Index/Tag";
 import type { Comment } from "~/types/Idea/Index/Comment";
 
 export type IdeaCardProps = Pick<Idea, "id" | "title" | "description" | "updatedAt"> & {
-  author: Pick<Author, "id" | "name" | "profileImage" | "username">
+  author: Pick<Author, "id" | "fullname" | "picture" | "username">
   comments: Comment[]
   tags: Tag[]
 };
@@ -29,8 +27,8 @@ export function IdeaCard(props: IdeaCardProps) {
           <div className="flex flex-row gap-2 items-center">
             <div className={"w-12 h-12 rounded-full overflow-hidden"}>
               <Image
-                src={props.author.profileImage}
-                alt={props.author.name}
+                src={props.author.picture}
+                alt={props.author.fullname}
                 width={48}
                 height={48}
                 style={{ objectFit: "cover" }}
@@ -38,7 +36,7 @@ export function IdeaCard(props: IdeaCardProps) {
             </div>
             <div>
               <p className={"text-gray-200 text-md font-semibold"}>
-                {props.author.name}
+                {props.author.fullname}
               </p>
               <p className={"text-gray-500 font-normal text-sm"}>
                 @{props.author.username}
@@ -56,14 +54,14 @@ export function IdeaCard(props: IdeaCardProps) {
           >
             <div
               className={
-                "flex flex-row gap-2 items-center justify-start md:justify-center"
+                "flex flex-row gap-4 items-center justify-start md:justify-center"
               }
             >
-              <span className="text-slate-400 flex items-center gap-1 text-sm">
+              <span className="text-slate-400 flex items-center gap-1 text-sm capitalize">
                 <CalendarIcon />
                 {formatDistanceToNow(props.updatedAt, { addSuffix: true })}
               </span>
-              <div className="text-slate-400 flex items-center gap-2">
+              <div className="text-sm text-slate-400 flex items-center gap-1">
                 <CommentIcon />
                 {props.comments.length > 0 ? (
                   <>

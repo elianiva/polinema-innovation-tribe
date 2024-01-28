@@ -8,9 +8,9 @@ export const IDEAS: Idea[] = [
     title: "A new way to recycle plastic",
     author: {
       id: 'uid-12',
-      name: "Jane Doe",
+      fullname: "Jane Doe",
       username: "janedoe",
-      profileImage: "https://source.unsplash.com/1080x1080/?person,face",
+      picture: "https://source.unsplash.com/1080x1080/?person,face",
       bio: "I am an environmental scientist and avid recycler, always looking for new ways to reduce waste and protect our planet.",
     },
     description:
@@ -36,9 +36,9 @@ export const IDEAS: Idea[] = [
         id: 1,
         author: {
           id: 'uid-1',
-          name: "John Smith",
+          fullname: "John Smith",
           username: "johnsmith13",
-          profileImage: "https://source.unsplash.com/1080x1080/?person,face",
+          picture: "https://source.unsplash.com/1080x1080/?person,face",
           bio: "Passionate environmentalist dedicated to sustainability.",
         },
         text: "This is a great idea! I've been looking for ways to reduce plastic waste in my community, and this solution seems like it could really make a difference.",
@@ -53,9 +53,9 @@ export const IDEAS: Idea[] = [
     title: "A new technology for producing clean energy",
     author: {
       id: 'uid-2',
-      name: "John Doe",
+      fullname: "John Doe",
       username: "johndoe",
-      profileImage: "https://source.unsplash.com/1080x1080/?person,face,white",
+      picture: "https://source.unsplash.com/1080x1080/?person,face,white",
       bio: "I am a renewable energy engineer and technology enthusiast, always exploring new ways to create clean, sustainable energy.",
     },
     description:
@@ -81,9 +81,9 @@ export const IDEAS: Idea[] = [
         id: 1,
         author: {
           id: 'uid-3',
-          name: "Jane Smith",
+          fullname: "Jane Smith",
           username: "janesmith",
-          profileImage: "https://source.unsplash.com/1080x1080/?person,face",
+          picture: "https://source.unsplash.com/1080x1080/?person,face",
           bio: "Environmental activist and clean energy advocate.",
         },
         text: "This is amazing! I've been looking for a way to reduce my carbon footprint, and this technology seems like the perfect solution. I hope it becomes widely available soon!",
@@ -98,9 +98,9 @@ export const IDEAS: Idea[] = [
     title: "Using Solar Energy to Power Homes",
     author: {
       id: 'uid-4',
-      name: "John Doe",
+      fullname: "John Doe",
       username: "johndoe",
-      profileImage: "https://source.unsplash.com/1080x1080/?person,face,asia",
+      picture: "https://source.unsplash.com/1080x1080/?person,face,asia",
       bio: "I am an engineer and renewable energy enthusiast, always exploring new ways to harness clean and sustainable energy sources.",
     },
     description:
@@ -126,9 +126,9 @@ export const IDEAS: Idea[] = [
         id: 1,
         author: {
           id: 'uid-5',
-          name: "Jane Smith",
+          fullname: "Jane Smith",
           username: "janesmith13",
-          profileImage: "https://source.unsplash.com/1080x1080/?person,face",
+          picture: "https://source.unsplash.com/1080x1080/?person,face",
           bio: "Enthusiastic supporter of clean and sustainable energy sources.",
         },
         text: "I fully support this idea! Solar energy is a clean, renewable, and readily available energy source that we should be utilizing more widely.",

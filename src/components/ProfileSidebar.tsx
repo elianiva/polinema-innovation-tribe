@@ -7,15 +7,15 @@ export function ProfileSidebar(author: Author) {
     <div className="flex flex-col gap-2">
       <div className="flex flex-col gap-3">
         <Image
-          src={author.profileImage}
-          alt={author.name}
+          src={author.picture}
+          alt={author.fullname}
           width={48}
           height={48}
           className="rounded-full"
         />
       </div>
       <div className="flex flex-col gap-1">
-        <p className="text-gray-200 text-base font-semibold">{author.name}</p>
+        <p className="text-gray-200 text-base font-semibold">{author.fullname}</p>
         <p className="text-gray-500 font-normal text-sm">@{author.username}</p>
         <p className={"text-gray-200 font-normal text-sm"}>{author.bio}</p>
       </div>

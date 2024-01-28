@@ -1,8 +1,6 @@
 export type Author = {
   id: string;
-  name: string;
+  fullname: string;
   username: string;
-  profileImage: string;
-  bio: string;
-  whatsapp?: string;
+  picture: string;
 };

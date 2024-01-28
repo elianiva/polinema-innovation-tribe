@@ -6,34 +6,35 @@ type IdeaQueryResult = Record<string, any>;
 
 export async function fetchIdeas(cookieStore: ReadonlyRequestCookies) {
   const supabase = createSupabaseServerClient(cookieStore);
-  const ideas = await supabase
+  const { data: ideas } = await supabase
     .from("ideas")
     .select(`
       id,
       title,
       description,
       problem,
+      solution,
       updated_at,
       created_at,
-      users (
+      profiles (
         id,
-        username,
-        bio,
         email,
+        username,
+        fullname,
+        picture
       )
     `);
-  if (ideas.data === null) return [];
+  if (ideas === null) return [];
 
   const mappedData: Idea[] = (
-    ideas.data as unknown as IdeaQueryResult[]
+    ideas as unknown as IdeaQueryResult[]
   ).map((idea) => ({
     id: idea.id,
     author: {
-      id: idea.users.id,
-      username: idea.users.username,
-      bio: idea.users.bio,
-      name: [idea.users.first_name, idea.users.last_name].join(" "),
-      profileImage: idea.users.profile_image
+      id: idea.profiles.id,
+      username: idea.profiles.username,
+      fullname: idea.profiles.fullname,
+      picture: idea.profiles.picture
     },
     comments: [],
     title: idea.title,
