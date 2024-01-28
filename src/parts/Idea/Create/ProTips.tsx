@@ -20,7 +20,6 @@ const tips: Tips[] = [
   },
 ];
 
-
 export default function ProTips() {
   return (
     <div className="p-2 bg-slate-800 rounded-lg flex flex-col sticky top-16 gap-6 md:w-[60%] h-full">

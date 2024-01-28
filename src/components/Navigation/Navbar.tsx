@@ -5,7 +5,7 @@ import { useReducer } from "react";
 import { PolitribeLogo } from "~/icons/ic_politribe-logo";
 import { HiOutlineMenuAlt3 } from "react-icons/hi";
 import { IoClose } from "react-icons/io5";
-import { AuthMenu } from "~/components/Navigation/Components/AuthMenu";
+import { AuthMenu } from "~/components/Navigation/AuthMenu";
 import { NavLink } from "~/components/Navigation/NavLink";
 
 
