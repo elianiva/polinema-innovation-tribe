@@ -10,7 +10,7 @@ type ProfilePageProps = {
 }
 
 export const metadata: Metadata = {
-  title: "Profile",
+  title: "Profile"
 };
 
 export default async function ProfilePage(props: ProfilePageProps) {

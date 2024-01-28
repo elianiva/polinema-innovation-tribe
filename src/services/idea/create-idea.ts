@@ -4,8 +4,9 @@ import { createSupabaseServerClient } from "~/utils/supabase";
 
 export async function createIdea(cookieStore: ReadonlyRequestCookies, input: IdeaSchema) {
   const supabase = createSupabaseServerClient(cookieStore);
-  const { data: { user } } = await supabase.auth.getUser()
+  const { data: { user } } = await supabase.auth.getUser();
   if (!user) throw new Error("User not found");
+
   const result = await supabase.from("ideas").insert([
     {
       user_id: user.id,
@@ -13,7 +14,7 @@ export async function createIdea(cookieStore: ReadonlyRequestCookies, input: Ide
       title: input.title,
       problem: input.problem,
       solution: input.solution,
-      description: input.description,
+      description: input.description
     }
   ]);
 }
