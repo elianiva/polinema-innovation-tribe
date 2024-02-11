@@ -7,7 +7,7 @@ import { authSchema, type AuthSchema } from "~/schema/auth";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter } from "next/navigation";
 import { startTransition } from "react";
-import { handleLoginWithCredentials } from "~/parts/Authentication/login-action";
+import { handleLoginWithCredentials } from "~/features/Authentication/login-action";
 import toast from "react-hot-toast";
 
 export default function AuthLoginForm() {

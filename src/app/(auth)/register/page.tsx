@@ -1,6 +1,6 @@
 import { AuthOption, FormHeader } from "~/components/Form";
-import AuthRegisterForm from "~/parts/Authentication/AuthRegisterForm";
-import TermsSection from "~/parts/Authentication/TermsSection";
+import AuthRegisterForm from "~/features/Authentication/AuthRegisterForm";
+import TermsSection from "~/features/Authentication/TermsSection";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {

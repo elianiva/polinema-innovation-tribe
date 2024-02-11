@@ -7,13 +7,13 @@ import {
   HiShieldExclamation as ShieldIcon
 } from "react-icons/hi2";
 import { useForm } from "react-hook-form";
-import ProTips from "~/parts/Idea/Create/ProTips";
+import ProTips from "~/features/Idea/Create/ProTips";
 import { Input } from "~/components/Form/Input";
 import { TextAreaInput } from "~/components/Form/TextAreaInput";
 import { type IdeaSchema, ideaSchema } from "~/schema/idea";
 import { Form } from "~/components/Form";
 import { startTransition } from "react";
-import { handleCreateIdea } from "~/parts/Idea/Create/create-idea-action";
+import { handleCreateIdea } from "~/features/Idea/Create/create-idea-action";
 import { SubmitButton } from "~/components/Form/SubmitButton";
 import toast from "react-hot-toast";
 

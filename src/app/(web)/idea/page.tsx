@@ -1,7 +1,7 @@
 import Link from "next/link";
-import SearchInput from "~/parts/Idea/Index/SearchInput";
-import TagList from "~/parts/Idea/Index/TagList";
-import IdeasList from "~/parts/Idea/Index/IdeasList";
+import SearchInput from "~/features/Idea/Index/SearchInput";
+import TagList from "~/features/Idea/Index/TagList";
+import IdeasList from "~/features/Idea/Index/IdeasList";
 import { fetchIdeas } from "~/services/idea/all-ideas";
 import { fetchTags } from "~/services/tags/all-tags";
 import { cookies } from "next/headers";

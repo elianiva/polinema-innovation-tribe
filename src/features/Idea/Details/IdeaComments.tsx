@@ -1,4 +1,6 @@
-type IdeaCommentsProps = {}
+type IdeaCommentsProps = {
+  comments: Comment
+}
 
 export function IdeaComments(props: IdeaCommentsProps) {
   return (

@@ -6,7 +6,7 @@ import { registrationSchema, type RegistrationSchema } from "~/schema/registrati
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Input } from "~/components/Form/Input";
 import { startTransition } from "react";
-import { handleUserRegistration } from "~/parts/Authentication/register-action";
+import { handleUserRegistration } from "~/features/Authentication/register-action";
 import toast from "react-hot-toast";
 
 export default function AuthRegisterForm() {

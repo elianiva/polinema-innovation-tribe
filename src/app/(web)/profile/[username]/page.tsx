@@ -3,7 +3,7 @@ import { fetchUserProfile } from "~/services/user/profile";
 import { cookies } from "next/headers";
 import type { Metadata } from "next";
 import { fetchIdeasByUsername } from "~/services/idea/ideas-by-username";
-import IdeasList from "~/parts/Idea/Index/IdeasList";
+import IdeasList from "~/features/Idea/Index/IdeasList";
 
 type ProfilePageProps = {
   params: {

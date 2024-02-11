@@ -1,4 +1,4 @@
-import { AuthForm } from "~/parts/Authentication/AuthForm";
+import { AuthForm } from "~/features/Authentication/AuthForm";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {

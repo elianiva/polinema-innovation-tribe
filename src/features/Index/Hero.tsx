@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import TrustedSection from "./TrustedSection";
-import BenefitSection from "~/parts/Index/BenefitSection";
+import BenefitSection from "~/features/Index/BenefitSection";
 
 export default function Hero() {
   return (

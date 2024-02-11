@@ -1,5 +1,5 @@
-import TermsSection from "~/parts/Authentication/TermsSection";
-import AuthLoginForm from "~/parts/Authentication/AuthLoginForm";
+import TermsSection from "~/features/Authentication/TermsSection";
+import AuthLoginForm from "~/features/Authentication/AuthLoginForm";
 import { AuthOption, FormHeader } from "~/components/Form";
 import type { Metadata } from "next";
 

@@ -1,4 +1,4 @@
-import Header from "~/parts/Competition/Header";
+import Header from "~/features/Competition/Header";
 
 export default function CompetitionPage() {
   return (

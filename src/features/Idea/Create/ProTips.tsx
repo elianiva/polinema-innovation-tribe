@@ -1,4 +1,4 @@
-import TipsButton from "~/parts/Idea/Create/TipsButton";
+import TipsButton from "~/features/Idea/Create/TipsButton";
 
 type Tips = {
   name: string;

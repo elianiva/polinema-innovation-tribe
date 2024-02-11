@@ -4,7 +4,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { contactDetailSchema, type ContactDetailSchema } from "~/schema/contact";
 import { startTransition } from "react";
-import { handleSendSuggestion } from "~/parts/Index/send-suggestion-action";
+import { handleSendSuggestion } from "~/features/Index/send-suggestion-action";
 import { Form } from "~/components/Form";
 import toast from "react-hot-toast";
 

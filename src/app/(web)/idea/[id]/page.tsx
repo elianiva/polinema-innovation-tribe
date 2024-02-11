@@ -1,4 +1,4 @@
-import IdeaContent from "~/parts/Idea/Details/IdeaContent";
+import IdeaContent from "~/features/Idea/Details/IdeaContent";
 import { fetchIdeaById } from "~/services/idea/idea-by-id";
 import { cookies } from "next/headers";
 

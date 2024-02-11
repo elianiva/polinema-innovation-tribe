@@ -1,4 +1,4 @@
-import IdeaForm from "~/parts/Idea/Create/IdeaForm";
+import IdeaForm from "~/features/Idea/Create/IdeaForm";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
