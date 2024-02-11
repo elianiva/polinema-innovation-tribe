@@ -1,7 +1,8 @@
+import type { Metadata } from "next";
 import TermsSection from "~/features/authentication/components/TermsSection";
 import AuthLoginForm from "~/features/authentication/components/AuthLoginForm";
-import { AuthOption, FormHeader } from "~/components/Form";
-import type { Metadata } from "next";
+import { FormHeader } from "~/components/Form";
+import { AuthOption } from "~/features/authentication/components/AuthOption";
 
 export const metadata: Metadata = {
   title: "Login with Email"

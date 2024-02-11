@@ -1,6 +1,7 @@
 import TermsSection from "~/features/authentication/components/TermsSection";
-import { AuthOption, FormHeader } from "~/components/Form";
+import { FormHeader } from "~/components/Form";
 import { AuthButtons } from "~/features/authentication/components/AuthButtons";
+import { AuthOption } from "~/features/authentication/components/AuthOption";
 
 type AuthFormProps = {
   name: "Register" | "Login";

@@ -17,8 +17,6 @@ export default function CompetitionPage() {
           {" "}
           instead.
         </h1>
-        {/*<TagList tags={TAGS} />*/}
-        {/*<CompetitionList competition={COMPETITION} />*/}
       </section>
     </div>
   );

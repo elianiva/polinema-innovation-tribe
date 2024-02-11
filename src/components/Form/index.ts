@@ -1,4 +1,3 @@
-export * from "./AuthOption";
 export * from "./Errors";
 export * from "./Form";
 export * from "./FormHeader";

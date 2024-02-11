@@ -1,7 +1,8 @@
-import { AuthOption, FormHeader } from "~/components/Form";
+import type { Metadata } from "next";
+import { FormHeader } from "~/components/Form";
 import AuthRegisterForm from "~/features/authentication/components/AuthRegisterForm";
 import TermsSection from "~/features/authentication/components/TermsSection";
-import type { Metadata } from "next";
+import { AuthOption } from "~/features/authentication/components/AuthOption";
 
 export const metadata: Metadata = {
   title: "Register New Account",

@@ -1,5 +1,7 @@
+import type { CommentSchema } from "~/features/ideas/schema/comment";
+
 type IdeaCommentsProps = {
-  comments: Comment
+  comments: CommentSchema[]
 }
 
 export function IdeaComments(props: IdeaCommentsProps) {
