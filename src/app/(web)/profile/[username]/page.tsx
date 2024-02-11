@@ -1,9 +1,9 @@
 import Image from "next/image";
-import { fetchUserProfile } from "~/services/user/profile";
+import { fetchUserProfile } from "~/features/authentication/services/profile";
 import { cookies } from "next/headers";
 import type { Metadata } from "next";
-import { fetchIdeasByUsername } from "~/services/idea/ideas-by-username";
-import IdeasList from "~/features/Idea/Index/IdeasList";
+import { fetchIdeasByUsername } from "~/features/ideas/services/ideas-by-username";
+import IdeasList from "~/features/ideas/components/IdeasList";
 
 type ProfilePageProps = {
   params: {

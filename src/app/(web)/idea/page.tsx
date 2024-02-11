@@ -1,9 +1,9 @@
 import Link from "next/link";
-import SearchInput from "~/features/Idea/Index/SearchInput";
-import TagList from "~/features/Idea/Index/TagList";
-import IdeasList from "~/features/Idea/Index/IdeasList";
-import { fetchIdeas } from "~/services/idea/all-ideas";
-import { fetchTags } from "~/services/tags/all-tags";
+import SearchInput from "~/features/ideas/components/SearchInput";
+import TagList from "~/features/ideas/components/TagList";
+import IdeasList from "~/features/ideas/components/IdeasList";
+import { fetchIdeas } from "~/features/ideas/services/all-ideas";
+import { fetchTags } from "~/features/ideas/services/all-tags";
 import { cookies } from "next/headers";
 import { createSupabaseServerClient } from "~/utils/supabase";
 import type { Metadata } from "next";

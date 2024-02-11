@@ -1,8 +1,8 @@
-import Hero from "~/features/Index/Hero";
-import ContributorSection from "~/features/Index/ContributorSection";
-import BenefitSection from "~/features/Index/BenefitSection";
-import StepsSection from "~/features/Index/Step";
-import ContactForm from "~/features/Index/ContactForm";
+import Hero from "~/features/homepage/components/Hero";
+import ContributorSection from "~/features/homepage/components/ContributorSection";
+import BenefitSection from "~/features/homepage/components/BenefitSection";
+import StepsSection from "~/features/homepage/components/Step";
+import ContactForm from "~/features/homepage/components/ContactForm";
 import { contributors } from "~/data/contributors";
 import type { Metadata } from "next";
 

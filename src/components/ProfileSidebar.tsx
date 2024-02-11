@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import type { AuthorSchema } from "~/schema/idea";
+import type { AuthorSchema } from "~/features/ideas/schema/idea";
 
 export function ProfileSidebar(author: AuthorSchema) {
   return (

@@ -5,7 +5,7 @@ import { Navbar } from "~/components/Navigation/Navbar";
 import Loading from "~/app/(auth)/loading";
 import { cookies } from "next/headers";
 import { createSupabaseServerClient } from "~/utils/supabase";
-import { fetchUserProfile } from "~/services/user/profile";
+import { fetchUserProfile } from "~/features/authentication/services/profile";
 
 export default async function RootLayout(props: PropsWithChildren<{}>) {
   const cookieStore = cookies();

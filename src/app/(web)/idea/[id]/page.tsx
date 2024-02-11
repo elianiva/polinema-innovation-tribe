@@ -1,5 +1,5 @@
-import IdeaContent from "~/features/Idea/Details/IdeaContent";
-import { fetchIdeaById } from "~/services/idea/idea-by-id";
+import IdeaContent from "~/features/ideas/components/IdeaContent";
+import { fetchIdeaById } from "~/features/ideas/services/idea-by-id";
 import { cookies } from "next/headers";
 
 type IdeaPageProps = {
