@@ -1,12 +1,24 @@
-/** @type {import('next').NextConfig} */
+/** @type {import("next").NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  eslint: {
+    ignoreDuringBuilds: true
+  },
   webpack(config) {
+    const nextImageLoaderRule = config.module.rules.find((rule) =>
+      rule.test?.test?.(".svg")
+    );
+
+    nextImageLoaderRule.resourceQuery = {
+      not: [...nextImageLoaderRule.resourceQuery.not, /icon/]
+    };
+
     config.module.rules.push({
-      test: /\.svg$/i,
-      issuer: /\.[jt]sx?$/,
-      use: ["@svgr/webpack"],
+      issuer: nextImageLoaderRule.issuer,
+      resourceQuery: /icon/, // *.svg?icon
+      use: ["@svgr/webpack"]
     });
+
     return config;
   },
   images: {
@@ -14,13 +26,10 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "**",
-      },
-    ],
-  },
-  experimental: {
-    appDir: true,
-  },
+        hostname: "**"
+      }
+    ]
+  }
 };
 
 module.exports = nextConfig;
