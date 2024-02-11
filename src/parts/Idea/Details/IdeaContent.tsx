@@ -6,6 +6,7 @@ import IdeaHeader from "./IdeaHeader";
 import { HiCalendar } from "react-icons/hi";
 import { formatDistanceToNow } from "date-fns";
 import type { IdeaSchema } from "~/schema/idea";
+import { IdeaComments } from "~/parts/Idea/Details/IdeaComments";
 
 export default function IdeaContent(props: IdeaSchema) {
   return (
@@ -51,6 +52,7 @@ export default function IdeaContent(props: IdeaSchema) {
             {props.solution}
           </p>
         </div>
+        <IdeaComments />
       </div>
     </div>
   );

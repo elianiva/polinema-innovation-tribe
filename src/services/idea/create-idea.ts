@@ -7,7 +7,7 @@ export async function createIdea(cookieStore: ReadonlyRequestCookies, input: Ide
   const { data: { user } } = await supabase.auth.getUser();
   if (!user) throw new Error("User not found");
 
-  const result = await supabase.from("ideas").insert([
+  return supabase.from("ideas").insert([
     {
       user_id: user.id,
       id: crypto.randomUUID().toString(),

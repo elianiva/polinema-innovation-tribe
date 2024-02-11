@@ -1,4 +1,3 @@
-import IdeaSidebar from "~/parts/Idea/Details/IdeaSidebar";
 import IdeaContent from "~/parts/Idea/Details/IdeaContent";
 import { fetchIdeaById } from "~/services/idea/idea-by-id";
 import { cookies } from "next/headers";
